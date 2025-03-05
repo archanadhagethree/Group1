@@ -5,6 +5,8 @@ def decimal_to_hex(decimal_value):
     hex_chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 
     # Handle zero Input
+    if decimal_value == 0: 
+        return "0"
 
 
     hexadecimal = ""
