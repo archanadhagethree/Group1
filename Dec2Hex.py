@@ -29,8 +29,9 @@ def decimal_to_hex(decimal_value):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) > 1:
-
+    # Check 1 argument is passed or not
+    if len(sys.argv) == 2:
+        
         try:
 
             decimal_value = int(sys.argv[1])
