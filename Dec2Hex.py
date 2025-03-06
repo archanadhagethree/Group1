@@ -1,26 +1,48 @@
-import unittest
-from Dec2Hex import decimal_to_hex
+import sys
 
-class DecimalToHexTest(unittest.TestCase):
+def decimal_to_hex(decimal_value):
 
-    def test_decimal_to_hex(self):
-        self.assertEqual(decimal_to_hex(0), '0')  
-        self.assertEqual(decimal_to_hex(10), 'A')  
-        self.assertEqual(decimal_to_hex(255), 'FF')  
+    hex_chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 
-    def test_invalid_input(self):
-        with self.assertRaises(ValueError):  
-            decimal_to_hex("abc")  # Non-integer input should raise an error
+    # Handle zero Input
+    if decimal_value == 0: 
+        return "0"
 
-        with self.assertRaises(ValueError):
-            decimal_to_hex(12.5)  # Float should also raise an error
 
-    def test_no_input(self):
-        """Test behavior when no input is provided"""
-        with self.assertRaises(ValueError) as context:  
-            decimal_to_hex(None)  # Now correctly expects ValueError
-        
-        self.assertEqual(str(context.exception), "Error: No input provided")  # Ensure correct error message
+    hexadecimal = ""
+
+    num = decimal_value
+
+    print(f"Converting the Decimal Value {num} to Hex...")
+
+    while num != 0:
+
+        rem = num % 16
+
+        hexadecimal = hex_chars[rem] + hexadecimal
+
+        num //= 16
+
+    print(f"Hexadecimal representation is: {hexadecimal}")
+
+    return hexadecimal # Return the hexadecimal value for testing
 
 if __name__ == "__main__":
-    unittest.main()
+
+    # Check 1 argument is passed or not
+    if len(sys.argv) == 2:
+        
+        try:
+
+            decimal_value = int(sys.argv[1])
+
+            decimal_to_hex(decimal_value)
+
+        except ValueError:
+
+            print("Please provide a valid integer.")
+    else:
+        print("Usage: python script.py <decimal_number>")
+else:
+
+    print("Usage: python script.py <decimal_number>")
