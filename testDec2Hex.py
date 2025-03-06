@@ -1,7 +1,7 @@
 import unittest
 from io import StringIO
 import sys
-from Dex2Hex import decimal_to_hex
+from Dec2Hex import decimal_to_hex
 
 
 class DecimalToHexTest(unittest.TestCase):
