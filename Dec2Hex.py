@@ -1,5 +1,5 @@
 import sys
-from Dex2Hex import decimal_to_hex
+
 
 def decimal_to_hex(decimal_value):
 
