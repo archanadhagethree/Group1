@@ -1,32 +1,29 @@
 import sys
 
 
-def decimal_to_hex(decimal_value):
+import sys
 
-    hex_chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+def decimal_to_hex(value):
+    if value is None:
+        raise ValueError("Error: No input provided")  # Raise an error instead of sys.exit(1)
 
-    # Handle zero Input
-    if decimal_value == 0: 
-        return "0"
+    if not isinstance(value, int):  
+        raise ValueError("Input must be an integer")
 
+    return hex(value)[2:].upper()  # Convert to hex and remove '0x' prefix
 
-    hexadecimal = ""
+if __name__ == "__main__":
+    if len(sys.argv) <= 1:
+        print("Error: No input provided")
+        sys.exit(1)  # Only exit if run as a script
 
-    num = decimal_value
+    try:
+        value = int(sys.argv[1])  
+        print(decimal_to_hex(value))
+    except ValueError:
+        print("Error: Input must be an integer")
+        sys.exit(1)
 
-    print(f"Converting the Decimal Value {num} to Hex...")
-
-    while num != 0:
-
-        rem = num % 16
-
-        hexadecimal = hex_chars[rem] + hexadecimal
-
-        num //= 16
-
-    print(f"Hexadecimal representation is: {hexadecimal}")
-
-    return hexadecimal # Return the hexadecimal value for testing
 
 if __name__ == "__main__":
 
