@@ -27,5 +27,23 @@ class TestDex2Hex(unittest.TestCase):
         self.assertEqual(decimal_to_hex(16), "10")
         self.assertEqual(decimal_to_hex(256), "100")
         
+    # Additional tests to cover more branches:
+    def test_negative_number(self):
+        """Test conversion of a negative number (adjust expected behavior as needed)"""
+        # For example, if you expect the result to include a minus sign:
+        self.assertEqual(decimal_to_hex(-15), "-F")
+
+    def test_invalid_input(self):
+        """Test that non-integer input raises an error"""
+        with self.assertRaises(TypeError):
+            decimal_to_hex("abc")
+        with self.assertRaises(TypeError):
+            decimal_to_hex(12.5)
+
+    def test_none_input(self):
+        """Test that None input raises an error or exits gracefully"""
+        with self.assertRaises(ValueError):
+            decimal_to_hex(None)
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
