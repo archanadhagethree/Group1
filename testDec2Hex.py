@@ -31,7 +31,7 @@ class TestDex2Hex(unittest.TestCase):
     def test_invalid_input(self):
         """Test that non-integer input raises an error"""
         with self.assertRaises(TypeError):
-            decimal_to_hex("abc", verbose=False)
+            decimal_to_hex("abc")
         with self.assertRaises(TypeError):
             decimal_to_hex(12.5)
 
