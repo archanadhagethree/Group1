@@ -4,7 +4,17 @@ def decimal_to_hex(decimal_value):
 
     hex_chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 
+    if decimal_value is None:
+        raise ValueError("No input provided")
 
+    # Raise an error if input is not an integer
+    if not isinstance(decimal_value, int):
+        raise ValueError("Input must be an integer")
+
+    # Handle zero case
+    if decimal_value == 0:
+        return "0" 
+        
     hexadecimal = ""
 
     num = decimal_value
