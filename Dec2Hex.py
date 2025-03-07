@@ -9,7 +9,7 @@ def decimal_to_hex(decimal_value, verbose=False):  # Add 'verbose' to suppress p
 
     # Raise an error if input is not an integer
     if not isinstance(decimal_value, int):
-        raise ValueError("Input must be an integer")
+        raise TypeError("Input must be an integer")
 
     # Handle zero case
     if decimal_value == 0:
