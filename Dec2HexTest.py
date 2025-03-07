@@ -1,7 +1,7 @@
 import unittest
 from Dec2Hex import decimal_to_hex
 
-class TestDex2Hex(unittest.TestCase):
+class Dec2HexTest(unittest.TestCase):
     def test_basic_conversions(self):
         """Test standard decimal to hex conversions"""
         test_cases = [
