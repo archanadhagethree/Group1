@@ -20,7 +20,7 @@ class TestDex2Hex(unittest.TestCase):
                 
     def test_zero(self):
         """Test that zero returns empty string per current implementation"""
-        self.assertEqual(decimal_to_hex(0), "")
+        self.assertEqual(decimal_to_hex(0), "0")  # Change expected result
         
     def test_power_of_16(self):
         """Test numbers that are powers of 16"""
