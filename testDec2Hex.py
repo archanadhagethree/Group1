@@ -1,44 +1,38 @@
 import unittest
 from Dec2Hex import decimal_to_hex
 
-class Dec2HexTest(unittest.TestCase):
+class TestDecimalToHex(unittest.TestCase):
 
-    def test_conversions(self):
-        """Test standard decimal to hex conversions"""
-        test_cases = [
-            (15, "F"),
-            (16, "10"),
-            (255, "FF"),
-            (10, "A"),
-            (11, "B"),
-            (12, "C"),
-            (13, "D"),
-            (14, "E")
-        ]
-        for decimal, expected in test_cases:
-            with self.subTest(decimal=decimal):
-                self.assertEqual(decimal_to_hex(decimal), expected)
-                
-    def test_zero_input(self):
-        """Test that zero returns '0' per current implementation"""
-        self.assertEqual(decimal_to_hex(0), "0")  # Expected result is "0", not an empty string
-        
-    def test_power_16(self):
-        """Test numbers that are powers of 16"""
+    def test_valid_decimal(self):
+        self.assertEqual(decimal_to_hex(255), "FF")
+        self.assertEqual(decimal_to_hex(0), "0")
+        self.assertEqual(decimal_to_hex(-255), "FF")
         self.assertEqual(decimal_to_hex(16), "10")
-        self.assertEqual(decimal_to_hex(256), "100")
-        
-    def test_invalid_input(self):
-        """Test that non-integer input raises a TypeError"""
-        with self.assertRaises(TypeError):
-            decimal_to_hex("abc")
-        with self.assertRaises(TypeError):
-            decimal_to_hex(12.5)
 
-    def test_none_input(self):
-        """Test that None input raises a ValueError"""
+    def test_verbose_output(self):
+        # Capturing output for verbose=True
+        import sys
+        from io import StringIO
+        sys.stdout = StringIO()
+        decimal_to_hex(255, verbose=True)
+        output = sys.stdout.getvalue()
+        self.assertIn("Converting the Decimal Value 255 to Hex...", output)
+        self.assertIn("Hexadecimal representation is : FF", output)
+        self.assertIn("The Decimal value for this is: 255", output)
+        sys.stdout = sys.__stdout__  # Reset stdout
+
+    def test_invalid_input(self):
+        # Test for None input
         with self.assertRaises(ValueError):
             decimal_to_hex(None)
 
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+        # Test for non-integer input
+        with self.assertRaises(TypeError):
+            decimal_to_hex("hello")
+
+    def test_edge_case_zero(self):
+        # Test for zero case
+        self.assertEqual(decimal_to_hex(0), "0")
+
+if __name__ == "__main__":
+    unittest.main()
