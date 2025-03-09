@@ -1,6 +1,12 @@
 import sys
 
 def decimal_to_hex(decimal_value):
+    if decimal_value is None:
+        raise ValueError("Input cannot be None")  # Handle None properly
+    
+    if not isinstance(decimal_value, int):
+        raise TypeError("Input must be an integer")  # Ensure only integers are allowed
+
     if decimal_value == 0:
         return "0"
 
@@ -10,7 +16,7 @@ def decimal_to_hex(decimal_value):
 
     while num != 0:
         rem = num % 16
-        hexadecimal = hex_chars[rem] + hexadecimal
+        hexadecimal = hex_chars[rem] + hexadecimal  # Ensure concatenation works
         num //= 16
 
     return hexadecimal
@@ -22,6 +28,6 @@ if __name__ == "__main__":
             hexadecimal = decimal_to_hex(decimal_value)
             print(f"Hexadecimal: {hexadecimal}")
         except ValueError:
-            print("Please provide a valid integer.") # pragma: no cover
+            print("Please provide a valid integer.")  # pragma: no cover
     else:
-        print("Usage: python script.py <decimal_number>") # pragma: no cover
+        print("Usage: python script.py <decimal_number>")  # pragma: no cover
