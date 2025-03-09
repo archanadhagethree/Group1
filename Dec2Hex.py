@@ -15,8 +15,8 @@ def decimal_to_hex(decimal_value):
         hexadecimal = hex_chars[rem] + hexadecimal
         num //= 16
 
+
     print(f"Hexadecimal representation is : {hexadecimal}")
-    print(f"The Decimal value for this is: {decimal_value}")
 
     return hexadecimal
 
