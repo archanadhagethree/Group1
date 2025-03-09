@@ -1,18 +1,18 @@
 pipeline {
     agent any
     stages {
+
         stage('Check Python Version') {
             steps {
                 sh 'python3 --version'
+            }
+        }
+
+        stage('Check Python Version') {
+            steps {
+                sh 'python3 Dec2Hex.py 15'
             }
         }
     }
-
-        stages {
-        stage('Check Python Version') {
-            steps {
-                sh 'python3 --version'
-            }
-        }
 
 }
