@@ -21,10 +21,9 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         try:
             decimal_value = int(sys.argv[1])
-            verbose = '--verbose' in sys.argv
             hexadecimal = decimal_to_hex(decimal_value)
             print(f"Hexadecimal: {hexadecimal}")
         except ValueError:
             print("Please provide a valid integer.")
     else:
-        print("Usage: python script.py <decimal_number> [--verbose]")
+        print("Usage: python script.py <decimal_number>")
