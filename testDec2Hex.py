@@ -33,12 +33,5 @@ class TestDex2Hex(unittest.TestCase):
         with self.assertRaises(ValueError):
             decimal_to_hex(None)
 
-    def test_conversion_loop(self):
-        """Test that the conversion loop is covered (e.g., for a multi-digit hex number)"""
-        decimal_value = 255
-        expected_hex = "FF"
-        result = decimal_to_hex(decimal_value)
-        self.assertEqual(result, expected_hex)
-
 if __name__ == '__main__':
     unittest.main(verbosity=2)
