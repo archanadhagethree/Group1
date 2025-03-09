@@ -1,0 +1,16 @@
+node {
+
+  stage('build') {
+    sh python3 Dec2Hex.py 15 
+  }
+
+  stage('SCM') {
+    checkout scm
+  }
+  stage('cube') {
+    def scannerHome = tool 'SonarScanner';
+    withSonarQubeEnv() {
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
+}
