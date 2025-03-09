@@ -40,5 +40,13 @@ class TestDex2Hex(unittest.TestCase):
         with self.assertRaises(ValueError):
             decimal_to_hex(None)
 
+    def test_negative_numbers(self):
+        self.assertEqual(decimal_to_hex(-10), '-A')
+        self.assertEqual(decimal_to_hex(-256), '-100')
+
+    def test_large_numbers(self):
+        # Testing very large number
+        self.assertEqual(decimal_to_hex(1234567890), '499602D2')
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
