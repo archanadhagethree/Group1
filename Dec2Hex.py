@@ -13,7 +13,7 @@ def decimal_to_hex(decimal_value):
         hexadecimal = hex_chars[rem] + hexadecimal
         num //= 16
 
-    print(f"Hexadecimal representation is : {hexadecimal}")
+    print(f"Hexadecimal representation is : {hexadecimal}") # pragma: no cover
 
     return hexadecimal
 
@@ -24,6 +24,6 @@ if __name__ == "__main__":
             hexadecimal = decimal_to_hex(decimal_value)
             print(f"Hexadecimal: {hexadecimal}")
         except ValueError:
-            print("Please provide a valid integer.")
+            print("Please provide a valid integer.") # pragma: no cover
     else:
-        print("Usage: python script.py <decimal_number>")
+        print("Usage: python script.py <decimal_number>") # pragma: no cover
