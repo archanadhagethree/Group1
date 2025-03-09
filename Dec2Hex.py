@@ -22,12 +22,6 @@ def decimal_to_hex(decimal_value):
     return hexadecimal
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        try:
-            decimal_value = int(sys.argv[1])
-            hexadecimal = decimal_to_hex(decimal_value)
-            print(f"Hexadecimal: {hexadecimal}")
-        except ValueError:
-            print("Please provide a valid integer.")  # pragma: no cover
-    else:
-        print("Usage: python script.py <decimal_number>")  # pragma: no cover
+    hexadecimal = decimal_to_hex(decimal_value)
+    print(f"Hexadecimal: {hexadecimal}")
+
