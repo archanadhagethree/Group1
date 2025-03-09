@@ -6,24 +6,25 @@ pipeline {
             steps {
                 sh 'python3 --version'
             }
-        }
+pipeline {
+    agent any
 
-        stage('Build and test') {
+    stages {
+        stage('SCM') {
             steps {
-                sh 'python3 Dec2Hex.py 15'
+                checkout scm
             }
         }
 
-        stage('SCM') {
-            checkout scm
-        }
-        
         stage('SonarQube Analysis') {
-            def scannerHome = tool 'cube';
-            withSonarQubeEnv() {
-            sh "${scannerHome}/bin/sonar-scanner"
+            steps {
+                script {
+                    def scannerHome = tool 'cube'
+                    withSonarQubeEnv('SonarQube') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
             }
         }
     }
-
 }
