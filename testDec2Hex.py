@@ -7,7 +7,7 @@ class TestDex2Hex(unittest.TestCase):
         """Test that zero returns '0' as per current implementation"""
         self.assertEqual(decimal_to_hex(0), "0")  # Corrected expected result
         
-    def test_basic_conversions(self):
+    def test_Dec2Hex_conversion(self):
         """Test standard decimal to hex conversions"""
         test_cases = [
             (15, "F"),
