@@ -33,7 +33,7 @@ class TestDex2Hex(unittest.TestCase):
         with self.assertRaises(ValueError):
             decimal_to_hex(None)
 
-   def test_conversion_loop(self):
+    def test_conversion_loop(self):
         """Test that the conversion loop is covered (e.g., for a multi-digit hex number)"""
         decimal_value = 255
         expected_hex = "FF"
