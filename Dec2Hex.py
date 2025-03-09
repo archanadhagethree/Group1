@@ -26,7 +26,5 @@ if __name__ == "__main__":
             print(f"Hexadecimal: {hexadecimal}")
         except ValueError:
             print("Please provide a valid integer.")
-        except TypeError:
-            print("Input must be an integer.")
     else:
         print("Usage: python script.py <decimal_number> [--verbose]")
