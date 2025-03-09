@@ -22,6 +22,6 @@ def decimal_to_hex(decimal_value):
     return hexadecimal
 
 if __name__ == "__main__":
-    hexadecimal = decimal_to_hex(decimal_value)
+    hexadecimal = decimal_to_hex(sys.argv[1])
     print(f"Hexadecimal: {hexadecimal}")
 
