@@ -1,9 +1,9 @@
 import sys
 
-def decimal_to_hex(decimal_value, verbose=False):
+def decimal_to_hex(decimal_value):
     if decimal_value is None:
         raise ValueError("Input cannot be None")
-    if not isinstance(decimal_value, int):
+    if not isinstance(decimal_value, int)
         raise TypeError("Input must be an integer")
     
     if decimal_value == 0:
@@ -13,17 +13,15 @@ def decimal_to_hex(decimal_value, verbose=False):
     hexadecimal = ""
     num = abs(decimal_value)
 
-    if verbose:
-        print(f"Converting the Decimal Value {num} to Hex...")
+    print(f"Converting the Decimal Value {num} to Hex...")
 
     while num != 0:
         rem = num % 16
         hexadecimal = hex_chars[rem] + hexadecimal
         num //= 16
 
-    if verbose:
-        print(f"Hexadecimal representation is : {hexadecimal}")
-        print(f"The Decimal value for this is: {decimal_value}")
+     print(f"Hexadecimal representation is : {hexadecimal}")
+     print(f"The Decimal value for this is: {decimal_value}")
 
     return hexadecimal
 
