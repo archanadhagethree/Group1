@@ -3,7 +3,7 @@ import sys
 def decimal_to_hex(decimal_value):
     if decimal_value is None:
         raise ValueError("Input cannot be None")
-    if not isinstance(decimal_value, int)
+    if not isinstance(decimal_value, int):
         raise TypeError("Input must be an integer")
     
     if decimal_value == 0:
