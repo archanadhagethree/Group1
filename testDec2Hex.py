@@ -2,8 +2,11 @@ import unittest
 from Dec2Hex import decimal_to_hex
 
 class TestDex2Hex(unittest.TestCase):
+    def test_zero(self):
+        """Test that zero returns empty string per current implementation"""
+        self.assertEqual(decimal_to_hex(0), "0")  # Change expected result
     def test_basic_conversions(self):
-        """Test standard decimal to hex conversions"""
+                """Test standard decimal to hex conversions"""
         test_cases = [
             (15, "F"),
             (16, "10"),
@@ -18,11 +21,6 @@ class TestDex2Hex(unittest.TestCase):
             with self.subTest(decimal=decimal):
                 self.assertEqual(decimal_to_hex(decimal), expected)
                 
-    def test_zero(self):
-        """Test that zero returns empty string per current implementation"""
-        self.assertEqual(decimal_to_hex(0), "0")  # Change expected result
-        
-
     def test_invalid_input(self):
         """Test that non-integer input raises an error"""
         with self.assertRaises(TypeError):
