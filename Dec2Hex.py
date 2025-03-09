@@ -13,8 +13,6 @@ def decimal_to_hex(decimal_value):
         hexadecimal = hex_chars[rem] + hexadecimal
         num //= 16
 
-    print(f"Hexadecimal representation is : {hexadecimal}") # pragma: no cover
-
     return hexadecimal
 
 if __name__ == "__main__":
