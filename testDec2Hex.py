@@ -33,5 +33,10 @@ class TestDex2Hex(unittest.TestCase):
         with self.assertRaises(ValueError):
             decimal_to_hex(None)
 
+    def test_negative_numbers(self):
+        """Test negative input should raise an error"""
+        with self.assertRaises(ValueError):
+            decimal_to_hex(-5)
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
