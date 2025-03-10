@@ -1,7 +1,7 @@
 import unittest
 from Dec2Hex import decimal_to_hex
 
-class TestDex2Hex(unittest.TestCase):
+class TestDec2Hex(unittest.TestCase):
     
     def test_zero(self):
         """Test that zero returns '0' as per current implementation"""
@@ -25,8 +25,10 @@ class TestDex2Hex(unittest.TestCase):
                 
     def test_invalid_input(self):
         """Test that non-integer input raises an error"""
-        with self.assertRaises(TypeError):
-            decimal_to_hex(int(sys.argv[1]))
+        invalid_inputs = ["100", 5.5, [], {}]
+        for invalid in invalid_inputs:
+            with self.assertRaises(TypeError):
+                decimal_to_hex(invalid)
 
     def test_none_input(self):
         """Test that None input raises a ValueError"""
