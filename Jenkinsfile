@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    git https://github.com/archanadhagethree/Group1.git
 
     stages {
         stage('SCM') {
@@ -14,12 +14,8 @@ pipeline {
                     def scannerHome = tool 'cube'
                     withSonarQubeEnv('sonar-server') {
 
-                        sh """
-                        ${scannerHome}/bin/sonar-scanner \
-                          -Dsonar.projectKey= sqp_977048ebb6924caf19055dcdf34be650221d0096 \
-                          -Dsonar.sources=. \
-                          -Dsonar.host.url=http://54.196.167.113:9000/
-                        """
+                        sh "${scannerHome}/bin/sonar-scanner"
+                          
                     }
                 }
             }
