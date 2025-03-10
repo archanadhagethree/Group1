@@ -24,5 +24,5 @@ def decimal_to_hex(decimal_value):
 if __name__ == "__main__":
     decimal_value = int(sys.argv[1])
     hexadecimal = decimal_to_hex(decimal_value)
-    print(f"Hexadecimal: {hexadecimal}")
-
+    print(f"Converting the Decimal Value {decimal_value} to Hex...")
+    print(f"Hexadecimal representation is: {hexadecimal}")
