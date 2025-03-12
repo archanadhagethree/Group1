@@ -12,7 +12,7 @@ node {
         // Use the SonarQube environment settings
         withSonarQubeEnv() {
             sh """
-            sonar-scanner \
+            /usr/local/bin/sonar-scanner \
             -Dsonar.projectKey=group1 \
             -Dsonar.host.url=http://localhost:9000 \
             -Dsonar.token=sqp_d7f96b2fee04b8d0ff8f6ee1da3c904f64f21898
