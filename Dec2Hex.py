@@ -24,7 +24,7 @@ def decimal_to_hex(decimal_value):
 if __name__ == "__main__":
 
     if len(sys.argv) < 2:  # Check if an argument is provided
-        print("Error: No input provided. Please provide a decimal number as an argument.")
+        print("No input provided!. Please provide a decimal number as an argument.")
         sys.exit(1)
 
     decimal_value = int(sys.argv[1])
