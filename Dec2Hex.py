@@ -5,8 +5,7 @@ def decimal_to_hex(decimal_value):
         raise TypeError("Input must be an integer")  # Ensure only integers are allowed
 
     if decimal_value<1:
-        print("Please provide Decimal value grater than 0")
-        sys.exit(1)
+        return print("Please provide Decimal value grater than 0")
 
     hex_chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
     hexadecimal = ""
