@@ -1,7 +1,7 @@
 import sys
 
 def decimal_to_hex(decimal_value):
-   if not isinstance(decimal_value, int):
+    if not isinstance(decimal_value, int):
         raise TypeError("Input must be an integer")  # Ensure only integers are allowed
 
     if decimal_value == 0:
