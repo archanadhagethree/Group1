@@ -4,7 +4,7 @@ def decimal_to_hex(decimal_value):
     if not isinstance(decimal_value, int):
         raise TypeError("Input must be an integer")  # Ensure only integers are allowed
 
-    if Decimal_value==0:
+    if decimal_value==0:
         print("Please provide Decimal value grater than 0")
         sys.exit(1)
 
