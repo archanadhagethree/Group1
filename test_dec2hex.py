@@ -38,7 +38,7 @@ class TestDec2Hex(unittest.TestCase):
     def test_negative_numbers(self):
         """Test that negative numbers raise an error"""
         with self.assertRaises(ValueError):  # If your function allows negatives, return a valid hex
-        decimal_to_hex(-5)
+            decimal_to_hex(-5)
 
 
 if __name__ == '__main__':
