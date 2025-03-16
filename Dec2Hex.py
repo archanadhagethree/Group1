@@ -15,12 +15,16 @@ def decimal_to_hex(decimal_value):
         rem = num % 16
         hexadecimal = hex_chars[rem] + hexadecimal  # Ensure concatenation works
         num //= 16
-
+    print(f"Converting the Decimal Value {decimal_value} to Hex.\n Hexadecimal representation is: {hexadecimal}")
     return hexadecimal
 
 if __name__ == "__main__":
-    if sys.argv[1] is None:
-        raise ValueError("Input cannot be None")  # Handle None properly
-    decimal_value = int(sys.argv[1])
-    hexadecimal = decimal_to_hex(decimal_value)
-    print(f"Converting the Decimal Value {decimal_value} to Hex.\n Hexadecimal representation is: {hexadecimal}")
+    if len(sys.argv) > 1:
+        try:
+            decimal_value = int(sys.argv[1])
+            decimal_to_hex(decimal_value)
+        except ValueError:
+         print("Please provide a valid integer.")
+     else:
+         print("Usage: python script.py <decimal_number>")
+
