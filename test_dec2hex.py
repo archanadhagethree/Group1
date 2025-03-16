@@ -56,8 +56,5 @@ class TestDecimalToHex(unittest.TestCase):
     with self.assertRaises(TypeError):
         decimal_to_hex("string")
 
-        
-        self.assertIn("Error: No input provided. Please provide a decimal number.", captured_output.getvalue())
-
 if __name__ == "__main__":
     unittest.main()
