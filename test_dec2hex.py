@@ -34,7 +34,7 @@ class TestDecimalToHex(unittest.TestCase):
         decimal_to_hex(0)
         sys.stdout = sys.__stdout__  # Reset redirect.
         
-        self.assertIn("Please provide Decimal value grater than 0", captured_output.getvalue())
+        self.assertIn("Please provide Decimal value greater than 0", captured_output.getvalue())
     
     def test_valid_edge_case(self):
         # Test with another valid decimal value (e.g., 16)
