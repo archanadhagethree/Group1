@@ -26,4 +26,5 @@ if __name__ == "__main__":
         except ValueError: 
             print("Please provide a valid integer.")
     else:
-         raise ValueError("Error: No input provided. Please provide a decimal number.")
+         print("Error: No input provided. Please provide a decimal number.")
+         sys.exit(1)
