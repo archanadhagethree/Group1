@@ -26,5 +26,5 @@ if __name__ == "__main__":
         except ValueError: 
             print("Please provide a valid integer.")
     else:
-         print("Usage: python script.py <decimal_number>")
+         print("Usage: python script.py {decimal_value}")
 
