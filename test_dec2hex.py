@@ -49,12 +49,13 @@ class TestDecimalToHex(unittest.TestCase):
         self.assertIn(f"Hexadecimal representation is: {expected_output}", captured_output.getvalue())
     
     def test_invalid_input(self):
-        # Test when no input is provided (simulating CLI no argument)
-        captured_output = StringIO()
-        sys.stdout = captured_output
-        sys.argv = ["test_script.py"]
+    """Test when invalid input is provided (e.g., None or a string)."""
+    with self.assertRaises(TypeError):
         decimal_to_hex(None)
-        sys.stdout = sys.__stdout__  # Reset redirect.
+    
+    with self.assertRaises(TypeError):
+        decimal_to_hex("string")
+
         
         self.assertIn("Error: No input provided. Please provide a decimal number.", captured_output.getvalue())
 
