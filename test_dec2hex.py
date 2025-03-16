@@ -53,7 +53,7 @@ class TestDecimalToHex(unittest.TestCase):
         captured_output = StringIO()
         sys.stdout = captured_output
         sys.argv = ["test_script.py"]
-        decimal_to_hex(0)
+        decimal_to_hex(None)
         sys.stdout = sys.__stdout__  # Reset redirect.
         
         self.assertIn("Error: No input provided. Please provide a decimal number.", captured_output.getvalue())
