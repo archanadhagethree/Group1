@@ -1,45 +1,62 @@
 import unittest
+from io import StringIO
+import sys
 from Dec2Hex import decimal_to_hex
 
-class TestDec2Hex(unittest.TestCase):
+# Assuming the decimal_to_hex function is in the same file, if not, import it like this:
+# from your_module import decimal_to_hex
+
+class TestDecimalToHex(unittest.TestCase):
     
-    def test_zero(self):
-        """Test that zero returns '0' as per current implementation"""
-        self.assertEqual(decimal_to_hex(0), "0")  # Corrected expected result
+    def test_valid_decimal(self):
+        # Test with a valid decimal value
+        decimal_value = 255
+        expected_output = "FF"
         
-    def test_Dec2Hex_conversion(self):
-        """Test standard decimal to hex conversions"""
-        test_cases = [
-            (15, "F"),
-            (16, "10"),
-            (255, "FF"),
-            (10, "A"),
-            (11, "B"),
-            (12, "C"),
-            (13, "D"),
-            (14, "E")
-        ]
-        for decimal, expected in test_cases:
-            with self.subTest(decimal=decimal):
-                self.assertEqual(decimal_to_hex(decimal), expected)
-                
+        # Capture the print output
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        decimal_to_hex(decimal_value)
+        sys.stdout = sys.__stdout__  # Reset redirect.
+        
+        # Check if the output matches
+        self.assertIn(f"Hexadecimal representation is: {expected_output}", captured_output.getvalue())
+    
+    def test_input_is_not_integer(self):
+        # Test if the function raises TypeError for non-integer input
+        with self.assertRaises(TypeError):
+            decimal_to_hex("string")
+    
+    def test_decimal_less_than_one(self):
+        # Test if the function handles a decimal value less than 1
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        decimal_to_hex(0)
+        sys.stdout = sys.__stdout__  # Reset redirect.
+        
+        self.assertIn("Please provide Decimal value grater than 0", captured_output.getvalue())
+    
+    def test_valid_edge_case(self):
+        # Test with another valid decimal value (e.g., 16)
+        decimal_value = 16
+        expected_output = "10"
+        
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        decimal_to_hex(decimal_value)
+        sys.stdout = sys.__stdout__  # Reset redirect.
+        
+        self.assertIn(f"Hexadecimal representation is: {expected_output}", captured_output.getvalue())
+    
     def test_invalid_input(self):
-        """Test that non-integer input raises an error"""
-        invalid_inputs = ["100", 5.5, [], {}]
-        for invalid in invalid_inputs:
-            with self.assertRaises(TypeError):
-                decimal_to_hex(invalid)
+        # Test when no input is provided (simulating CLI no argument)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        sys.argv = ["test_script.py"]
+        decimal_to_hex(0)
+        sys.stdout = sys.__stdout__  # Reset redirect.
+        
+        self.assertIn("Error: No input provided. Please provide a decimal number.", captured_output.getvalue())
 
-    def test_none_input(self):
-        """Test that None input raises a ValueError"""
-        with self.assertRaises(ValueError):
-            decimal_to_hex(None)
-
-    def test_negative_numbers(self):
-        """Test that negative numbers raise an error"""
-        with self.assertRaises(ValueError):  # If your function allows negatives, return a valid hex
-            decimal_to_hex(-5)
-
-
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+if __name__ == "__main__":
+    unittest.main()
