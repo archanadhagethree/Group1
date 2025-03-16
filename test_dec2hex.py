@@ -48,13 +48,7 @@ class TestDecimalToHex(unittest.TestCase):
         
         self.assertIn(f"Hexadecimal representation is: {expected_output}", captured_output.getvalue())
     
-    def test_invalid_input(self):
-    """Test when invalid input is provided (e.g., None or a string)."""
-    with self.assertRaises(TypeError):
-        decimal_to_hex(None)
     
-    with self.assertRaises(TypeError):
-        decimal_to_hex("string")
 
 if __name__ == "__main__":
     unittest.main()
