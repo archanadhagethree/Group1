@@ -1,10 +1,7 @@
 import sys
 
 def decimal_to_hex(decimal_value):
-    if decimal_value is None:
-        raise ValueError("Input cannot be None")  # Handle None properly
-    
-    if not isinstance(decimal_value, int):
+   if not isinstance(decimal_value, int):
         raise TypeError("Input must be an integer")  # Ensure only integers are allowed
 
     if decimal_value == 0:
@@ -22,7 +19,8 @@ def decimal_to_hex(decimal_value):
     return hexadecimal
 
 if __name__ == "__main__":
-
+    if sys.argv[1] is None:
+        raise ValueError("Input cannot be None")  # Handle None properly
     decimal_value = int(sys.argv[1])
     hexadecimal = decimal_to_hex(decimal_value)
     print(f"Converting the Decimal Value {decimal_value} to Hex.\n Hexadecimal representation is: {hexadecimal}")
