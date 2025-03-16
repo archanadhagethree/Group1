@@ -23,10 +23,6 @@ def decimal_to_hex(decimal_value):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) < 2:  # Check if an argument is provided
-        print("No input provided!. Please provide a decimal number as an argument.")
-        sys.exit(1)
-
     decimal_value = int(sys.argv[1])
     hexadecimal = decimal_to_hex(decimal_value)
     print(f"Converting the Decimal Value {decimal_value} to Hex.\n Hexadecimal representation is: {hexadecimal}")
