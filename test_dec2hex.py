@@ -34,7 +34,7 @@ class TestDecimalToHex(unittest.TestCase):
         decimal_to_hex(0)
         sys.stdout = sys.__stdout__  # Reset redirect.
         
-        self.assertIn("Please provide Decimal value grater than 0", captured_output.getvalue())
+        self.assertIn("Please provide Decimal value greater than 0", captured_output.getvalue())
     
     def test_valid_edge_case(self):
         # Test with another valid decimal value (e.g., 16)
@@ -49,14 +49,14 @@ class TestDecimalToHex(unittest.TestCase):
         self.assertIn(f"Hexadecimal representation is: {expected_output}", captured_output.getvalue())
     
     def test_invalid_input(self):
-        # Test when no input is provided (simulating CLI no argument)
-        captured_output = StringIO()
-        sys.stdout = captured_output
-        sys.argv = ["test_script.py"]
-        decimal_to_hex(0)
-        sys.stdout = sys.__stdout__  # Reset redirect.
-        
-        self.assertIn("Error: No input provided. Please provide a decimal number.", captured_output.getvalue())
+        """Test when invalid input is provided (e.g., None or a string)."""
+       
+        with self.assertRaises(TypeError):
+            decimal_to_hex(None)
+
+        with self.assertRaises(TypeError):
+            decimal_to_hex("string")
+
 
 if __name__ == "__main__":
     unittest.main()
