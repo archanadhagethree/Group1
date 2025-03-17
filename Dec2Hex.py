@@ -2,7 +2,7 @@ import sys
 
 def decimal_to_hex(decimal_value):
     if not isinstance(decimal_value, int):
-        raise TypeError("Input must be an integer") # Check Input value only integer number.
+        raise TypeError("Input must be an integer") # Check Input value only integer numbers.
 
     if decimal_value<1:
         return print("Please provide Decimal value greater than 0") # Check Input value greater than 0 
